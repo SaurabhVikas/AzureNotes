@@ -1,0 +1,76 @@
+Understanding your requirements	:-
+Choosing the right cloud model	:- IaaS for VMs, PaaS for WebApps/SQL DB:-
+Storing user documents		:- Azure Storage Accounts
+Understanding costs		:- Subscriptions, Pricing Calculator, Support plans (Request Support (Basic), (Purchase Suport (Developer, Standard, and Professional Direct))
+	              		   Outbound cost for Azure outbound calls
+High Availability		:- Elasticity:- VMSS with LB
+Connecting DCs to Azure network	:- S2S VPN, P2S VPN, ExpressRoute connection. Router in OnPrem --> VPN --> VNet --> VMs
+The User identities		:- On-Prem AD to AAD using Azure AD Connect to sync users from on-prem to Azure		
+Monitoring your infrastructure	:- Azure Monitor, Azure Log Analytics workspace
+****************************************************************************************************************************************************************************************
+Fault Tolerance, Elasticity, Scalability, Low latency, Disaster recovery
+****************************************************************************************************************************************************************************************
+Cost Factors:- Regions, Usage based on compute hours, Usage based on storage, data transfer out of Azure, Cross-region or cross-AZs data transfers
+	       Free services like AAD, VNets, VNICs, RGs
+
+Azure reservations are CapEX
+****************************************************************************************************************************************************************************************
+Tools:-
+Azure Portal (Browser based). We can use Azure Cloud Shell from within the browser.
+Azure CLI for CLI commands
+Azure PowerShell for powershell commands
+****************************************************************************************************************************************************************************************
+Security and Governance:-
+NSG		:- For Subnets and NIs
+Firewall	:- For VNets, defines rules for incoming traffic to Azure, DOESN'T encrypt network traffic.
+MFA		:- Can be used in conjuction with Microsoft Authenticator App
+Resource locks	:- To prevent from accidental deletion.
+Azure Policy	:- Helps to imply some rules
+MS Defender	:- Here you get a security score, recommendations, regulatory compliance report
+AAD		:- Identity provider, does Authentication and Authorization both, can assign roles
+Azure Monitor	:- Notifications, Logs Analytics Workspace, Alerts
+****************************************************************************************************************************************************************************************
+Core Services:
+**************
+Azure Advisor			:- Security/Cost Recommendations
+Azure Application Insights	:- Monitor live web applications and provide performance aspects
+Azure Cognitive Services	:- Use to build AI applications
+Azure DevOps			:- Tools for DevOps lifecycle processes
+Azure DevOps - Repos		:- Host GIT repos
+Azure DevOps - Pipelines	:- for CI/CD processes
+Azure DevOps - Boards		:- Manage your tasks, backlogs, and user stories
+Azure Storage Accounts		:- Blob(VM disks), Fileshare(map drive), Queue(messaging), and table(key-value)
+Azure Cosmos DB			:- Fully Managed no-SQL data store, store JSON docs using SQL API
+Azure ML Designer		:- Helps to build, test, and deploy predictive analytics solutions
+Azure IoT Hub			:- Collect and process metrics from millions of devices such as your sensors
+Azure AI Bot			:- Online bots such as digital assisstance that have built-in speech support
+Azure Functions			:- Serverless service which allows you to host code
+Azure App Service		:- Help to host your web applications
+Azure Databricks		:- Provides spark-based clusters that can be used for data analytics
+Azure Information Protection	:- Encrypt documents and email messages
+Azure VNet			:- Isolated network on cloud
+Azure SQL DB			:- RDBMS
+Azure Synapse			:- SQL DW and data analytics
+Azure Marketplace		:- Browse for VM images
+Azure CDN			:- Easily straem data across the world
+Azure Logic App			:- Workflow service. Triggers and Actions (like send a notification mail)
+S2S VPN				:- VNetGW and LNetGW
+****************************************************************************************************************************************************************************************
+Azure RGs		:- Logical grouping of resources, 1 resource - 1 RG, RGs can not be nested, multi regions, tags are not inherited, policies are inherited
+Azure Subscriptions	:- Used for billing aspects, 1 resource - 1 subscription, can't merge subscriptions, 1 Azure Mgmt account - many Azure Subscriptions, resources can be moved from one
+                           subscription to another. 1 Azure Subscriptions - 1 Azure tenant at a time (can be changed)
+Azure Resource Manager	:- ARM:- Deploys your resources in Azure.
+ARM templates		:- Used to automate the deployment of resources.
+Management groups	:- Manage multiple subscriptions
+Resource tags		:- Tags are not inherited
+SLA			:- Guranteed uptime for Azure services
+Azure Government	:- For federal agencies in USA
+ISO			:- Defines global industry-based sstandards
+NIST			:- Standards that are used by US government
+GDPR			:- EU policy that regulates data privacy and protection
+Preview			:- Before they are made available to public
+Private Preview		:- Need to request to preview the service
+Public Preview		:- Anyone can try out the product using portal or CLI
+Azure Regions		:- 2-3 AZs
+AZs			:- Locations within regionthat are tolerant to local failures. Not all regions have AZ support.
+****************************************************************************************************************************************************************************************
