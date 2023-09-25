@@ -1,0 +1,135 @@
+******************************************************************************************************************************************************************************
+General Purpose or Standard storage class:-
+Containers : BLOB storage : Object based : Stores unstructured data like videos and all
+File shares : Kind of individual home filesystem on Azure storage account
+Table storage : For non-relational schemaless, structured data
+Queue storage : Messaging based service
+******************************************************************************************************************************************************************************
+Enable blob
+go to blob --> generate SAS (Share Access Signature)
+URL?SAStoken
+******************************************************************************************************************************************************************************
+blob soft delete = enabled
+once you delete blobs --> go to blob page --> show deleted blobs --> select your file --> scross right --> click on 3 dots --> undelete
+******************************************************************************************************************************************************************************
+Storage Account Access Tier:
+
+Premium: High performance with storage and access to data. SSD for storage for low latency. Used for streaming, ML. Higher storage cost.
+(
+Block blobs: Best for high transaction rates or low storage latency. Text and binary data.
+File shares: Best for enterprise or high-performance appications that need to scale.
+Page blobs: Best for random read and write operations. Virtual hard drive files used as disks for VMs.
+)
+Standard:
+(
+Hot: Frequent access. High storage cost but low access cost. Default Access tier.
+Cool: data needs to be stored for atleast 30 days. Infrequent Access. Lower storage but higher access cost compared to hot access tier.
+Archive: data needs to be stored for atleast 180 days. Rare Access. Lower storage but higher access cost compared to cool access tier. Good for long term backups.
+)
+Setting the access tier to "Archive" wil make your blob inaccessible until it is rehydrated back to "Hot" or "Cool", which may take several hours.
+
+STORAGE ACCOUNT level	: Hot/Cool
+BLOB level		: Hot/Cool/Archive
+******************************************************************************************************************************************************************************
+Redundancy models:
+LRS: Locally-redundant storage: Lowest-cost option with basic protection against server rack and drive failures. Recommended for non-critical scenarios. 3 copies of data are made.
+ZRS: Intermediate option with protection against datacenter-level failures. Recommended for high availability scenarios. Replicated synchronously across 3 AZs.
+GRS: DEFAULT: Geo-redundant storage: Intermediate option with failover capabilities in a secondary region. Recommended for backup scenarios. Based on Region-Pairs. Use LRS.
+RA-GRS: Read-access geo-redundant storage. RW on primary region but RO from secondary region.
+GZRS: Geo-Zone redundant storage: Optimal data protection solution that includes the offerings of both GRS and ZRS. Recommended for critical data scenarios.
+RA-GZRS: For RO secondary region.
+******************************************************************************************************************************************************************************
+https://azure.microsoft.com/en-us/pricing/details/storage/blobs/
+
+Block blob storage is used for streaming and storing documents, videos, pictures, backups, and other unstructured text or binary data.
+Total cost of block blob storage depends on:
+Volume of data stored per month.
+Quantity and types of operations performed, along with any data transfer costs.
+Data redundancy option selected.
+******************************************************************************************************************************************************************************
+Azure File shares:
+Works over SMB protocol. Server Message Blob
+Kind of individual/employee home filesystem on Azure storage account
+Files get objected as files not object.
+We first craete a fileshare --> browse --> Add directory --> Upload files
+To access: go to fileshares --> connect --> choose OS --> Show script --> run that to see fileshares as a mount point on your VM and access the files.
+
+Create a linux machine and mount this fileshare: 
+myVM/Password@4052
+
+WIN:
+$connectTestResult = Test-NetConnection -ComputerName mystorage1809.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded) {
+    # Save the password so the drive will persist on reboot
+    cmd.exe /C "cmdkey /add:`"mystorage1809.file.core.windows.net`" /user:`"localhost\mystorage1809`" /pass:`"lxdl3vYlVdosIyjcPch58fKHAogMi5CYp/LRmIrztD/SMX3nnUW9o1LItag/od2LUGweFoPvdpWL+AStHzdE7g==`""
+    # Mount the drive
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\mystorage1809.file.core.windows.net\myfs" -Persist
+} else {
+    Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
+LINUX:
+sudo mkdir /mnt/myfs
+if [ ! -d "/etc/smbcredentials" ]; then
+sudo mkdir /etc/smbcredentials
+fi
+if [ ! -f "/etc/smbcredentials/mystorage1809.cred" ]; then
+    sudo bash -c 'echo "username=mystorage1809" >> /etc/smbcredentials/mystorage1809.cred'
+    sudo bash -c 'echo "password=lxdl3vYlVdosIyjcPch58fKHAogMi5CYp/LRmIrztD/SMX3nnUW9o1LItag/od2LUGweFoPvdpWL+AStHzdE7g==" >> /etc/smbcredentials/mystorage1809.cred'
+fi
+sudo chmod 600 /etc/smbcredentials/mystorage1809.cred
+
+sudo bash -c 'echo "//mystorage1809.file.core.windows.net/myfs /mnt/myfs cifs nofail,credentials=/etc/smbcredentials/mystorage1809.cred,dir_mode=0777,file_mode=0777,serverino,nosharesock,actimeo=30" >> /etc/fstab'
+sudo mount -t cifs //mystorage1809.file.core.windows.net/myfs /mnt/myfs -o credentials=/etc/smbcredentials/mystorage1809.cred,dir_mode=0777,file_mode=0777,serverino,nosharesock,actimeo=30
+
+
+Use lazy method for unmount: sudo umount -l /mnt/myfs
+******************************************************************************************************************************************************************************
+Azure File Sync: Create it as a resource on Azure.
+It caches frequently accessed files from fileshare on cloud to on-prem Windows server.
+Here one of the step is to download and install the Azure file sync agent on the windows server.
+******************************************************************************************************************************************************************************
+Azure Queue Storage:
+Messaging based service
+We create "Queues" within the storage account and applications push(write)/pull(read) messages to/from these queues programatically.
+Dequeue deletes first element from the queue.
+******************************************************************************************************************************************************************************
+Azure Table storage:
+For non-relational schemaless, structured data
+Create a "Tables" from storage account.
+To access: goto "Storage Browser" --> Tables --> your table --> Add entity (Partition key (useful for search operations based on partitions) and Row key (unique id inside partitions)
+******************************************************************************************************************************************************************************
+Azure Storage Explorer:
+If you wanna go ahead and manage the data that you have in your Azure storage accounts, you can make use of the Azure Storage Explorer.
+Let's say you have users in your organization that just need to go ahead and work with data in Azure storage accounts. They don't need to work with other services on the Azure platform.
+Instead of giving them access onto the Azure portal itself, you know what you can do is they can actually download this client tool that's available free of cost that can go ahead and 
+actually work with the data that you have in your Azure storage accounts. It's a very simple and straightforward installation.
+
+https://azure.microsoft.com/en-in/products/storage/storage-explorer
+Go to windows and download the installer --> install --> Sign in --> Access your storage accounts.
+******************************************************************************************************************************************************************************
+Migrating your on-premises storage onto an Azure Storage account.
+You can also use a service, a solution known as the Azure Data Box. This allows you to send terabytes of data in and out of your Azure account.
+Here what happens is you can actually get a storage device, in which you can actually copy your data. You can send a request via the portal to receive this device,
+you then copy the data that you want transfer onto this device. You send this device onto Azure and their engineers will actually take the data and transport over their backbone network 
+faster into a storage account.
+
+https://learn.microsoft.com/en-us/azure/storage/common/storage-migration-overview
+https://azure.microsoft.com/en-us/products/databox/
+******************************************************************************************************************************************************************************
+AzCopy Tool:
+This is a command line utility that can be used to copy blobs and files from your local system onto your storage account, and even from your storage account onto your local system.
+We first need to download AzCopy on our local machine.
+Then use azcopy commands to make/copy actions.
+1. To create a container:-
+azcopy make "<container-url>/<container-name>?<SAS-of-storage-account>"
+2. To upload a file:-
+azcopy copy <filename> "<container-url>/<container-name>/<filename>?<SAS-of-storage-account>"
+******************************************************************************************************************************************************************************
+Virual Network Service Endpoints:
+Direct connectivity to Azure services over the Azure network.
+VMs --> VNet --> Endpoints --> Storage Account
+
+Go to VM --> VNet --> Service endpoint --> Add -> Select Microsoft.storage --> Add
+Then go to storage account --> Networking --> "Firewalls and virtual networks" --> Choose "enable from selected virtual networks and IP addresses" --> Add existing VNet --> Add yours VNet
+******************************************************************************************************************************************************************************
