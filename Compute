@@ -1,0 +1,100 @@
+Azure VM supports only Windows and Linux OS. Doesn't support MacOS.
+
+AVM is IaaS with on demand pricing.
+
+Need to be in any VNet/Subnet. Other things are like Network interface, disk, NSG, IP address range.
+IP address helps devices to be recongized over a network.
+
+myVM/Password@4052
+
+RDP pport#: 3389
+Now it will create a VNet, Subnet, and Public IP for us.
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/sizes
+
+Resource pricing are regions dependent.
+
+Temorary storage disk is ephimeral memory
+
+ip address assignment: Static (by default) and Dynamic
+
+linuxuser/Password@4052
+
+sudo su
+apt-get update -y
+apt-get install nginx -y
+
+One RG can have multiple Resources but 1 resource can be part of only 1 RG.
+
+One resource can be part of only 1 subscription.
+
+Wordpress packaged by Bitnami:- Select image from "Resource" page and click on create. --> Access public IP directly as image adds NSG inbound rules by default.
+
+VM types:
+
+General Purpose		: 	Balanced CPU to memory ratio. Great for dev/test env.
+Compute Optimized	: 	High CPU to memory ratio. Good for webservers.
+Memory Optimized	: 	Good memory to CPU ratio. Good for DB wloads.
+Storage Optimized	: 	High disk throughput. Ideal for Bigdata wloads.
+****************************************************************************************************************************************************************************************
+High Availability = Availability Sets:- Logical grouping of many VMs
+
+When you place your VM as part of an Availability Set, it gets assigned a fault domain (upto 3) and update domain (upto 20) (UD01, UD02, like that. Azure provides VM update one UD at a time).
+VMs in the same FD, share a common power source and network switch.
+
+FD01 (UD01 + UD03) + FD02 (UD02 + UD04)
+
+Availability set has no cost. You pay for underlying resources.
+You need to create multiple VMs as part of Availability Sets.
+Data doesn't get replicated across VMs in availability sets by default.
+
+You need to make VM part of an ASet during creation itself, it can't be added to an existing ASet later.
+****************************************************************************************************************************************************************************************
+All VMs of an ASet can be from same AZ so won't provide high availability if anything goes wrong with that AZ. So VMs of a ASet should be from Multi-AZ.
+****************************************************************************************************************************************************************************************
+Azure dedicated host: H/w isolation. No other VM(s) will be placed on the same host.
+****************************************************************************************************************************************************************************************
+VM Scale Sets:- Group of VMs, numbers can increase/decrease based on demand.
+****************************************************************************************************************************************************************************************
+Azure WebApps:- PaaS :- Multi programming language support, scales up/down based on demand.
+
+Create it as an Azure Service.
+
+WebApps can self Scale up and Scale out based on the App Service Plan. Not applicable with Free Tier.
+****************************************************************************************************************************************************************************************
+How to publish a .NET project from Visual Studio onto your Azure Web App:-
+VS community edition: Free: https://visualstudio.microsoft.com/downloads/ --> Install the web and Azure development tools.
+Run this VS Code as admin --> Create a new project --> ASP.NET Core Web App --> Next --> Project Name --> Next --> .NET 6.0 --> Next --> Create --> Close.
+
+Go to VSCode --> tools --> options --> search "Azure Account Selection" --> Sign in --> ok
+
+Righ click on webapp project --> Publish --> Azure --> Next --> Azure App Service (Windows) --> next --> it should load the WebApps resource of your Azure --> Finish --> Publish
+It opens Azure WebApps URL in browser.
+****************************************************************************************************************************************************************************************
+Azure Functions:-
+
+Services --> Function App --> Then you create functions inside it like "demo" --> code + Test --> Run
+****************************************************************************************************************************************************************************************
+Containers:
+Multiple containers run in isolation in same VM without causing issues to each other.
+Portability. Can move container images.
+
+Docker is an open platform that is used for developing, shipping and running applications. 
+Docker has the ability to package and run an application in a loosely isolated environemnt called a container. 
+Docker host. Image (Read-only template for container creation) and Container (runnable instance of an image.)
+
+Create "container instance" resource
+
+The images for a containers can be in the Azure Container Registry or within docker hub, or you could also use the quick start images as well.
+****************************************************************************************************************************************************************************************
+Kubernetes:- Orchestrate your containers.
+Create "Kubernetes Services --> Create --> Kubernetes Cluster" resource
+Add yaml files in wload and services sections. --> LB IP in browser to see app
+****************************************************************************************************************************************************************************************
+Azure Virtual Desktop:-
+Supports Desktop and Application virtualization both.
+When you have existing licenses.
+https://azure.microsoft.com/en-in/products/virtual-desktop
+
+First create a "Virtual Network" --> Then "Azure Virtual Desktop" --> Create a host pool
+****************************************************************************************************************************************************************************************
