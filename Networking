@@ -1,0 +1,53 @@
+VNet:-
+All inbound traffic is denied.
+All outbound traffic is allowed.
+
+
+linuxuser/Password@4052
+
+If we deploy a resource in a resource group and don't specifically mention region details, then it will get deployed in the same region where RG is present.
+
+By default communication between different subnets in a single VNet is allowed. This happens over private IP addresses.
+
+We can rename a subnet only if it doesn't have any VM inside it.
+
+NSG:-
+NSG is used to filter network traffic to and from Azure resources within an Azure VNet.
+Can be associated with network interface or subnet. CANNOT be associated directly to a VNet.
+Contains rules which can allow/deny inbound/outbound traffic.
+
+ASG:-
+You can make a VM part of an ASG and then define a rule in NSG to allow traffic from this ASG rather from private IP of that source VM.
+
+VPN:-
+For the VMs where public IP address is not allowed. Like VMs in on-premises. To conenct to those VMs from cloud you need to access private IP over VPN.
+
+Point to site VPN via "Azure Virtual Network Gateway". For individual computers.
+Site  to site VPN via "Azure Virtual Network Gateway" and "Local Network Gateway" as well. For entire site.
+
+Azure ExpressRoute:-
+Allows you to connect your on-premises networks to MS cloud over the private connection. 
+Here the connections is established with the help of a connectivity provider rather via internet.
+You get two conenctions for redundancy.
+
+Azure LB:- Basic (no charge but with no SLA and no HA) and Standard (has an hourly charge, HA)
+Configure:- Public IP, Health probe, and LB rules
+VMs should be part of Scale Sets or Availability Sets
+You can use the NAT rules to direct traffic to the backend instances. 
+The virtual machine and the virtual network need to be in the same region.
+
+Lab: 
+Create 2 linux VMs in same VNet with NSG for port 80 as well. Install nginx on both.
+Di-associate public IP for both via network interface --> IP configuration
+Create a LB resource. --> Basic --> Public --> Add
+
+DNS: Domain Name System Service
+Create your own domain name.
+You should have 1 domain from external provider like godaddy. You can manage it's DNS records.
+Then create "DNS zone" resource in Azure portal with same godaddy domain name.
+Add A record set --> for lb public IP
+Add NS record in godaddy domain name servers.
+
+Peering:-
+Create Azure virtual network peering connection to allow 2 VNets communicate with each other.
+We can do this via VM details page.
