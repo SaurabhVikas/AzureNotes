@@ -1,0 +1,37 @@
+High Availability:-
+Availability Sets (server or rack failure) or Availability Zones (DC failure)
+Redundancy
+****************************************************************************************************************************************************************************************
+Scalability:-
+Virtual Machine Scale Sets for on-demand scalability
+Services like "Storage Account" scales automatically
+****************************************************************************************************************************************************************************************
+Disaster Recovery:-
+Availability Sets / Availability Zones / GRS based on region pairs (Active-Active, Active-Passive)
+****************************************************************************************************************************************************************************************
+Elasticity:
+VM size updates.
+****************************************************************************************************************************************************************************************
+Fault Tolerance:-
+Availability Sets / Availability Zones
+ZRS/GRS
+****************************************************************************************************************************************************************************************
+Cloud Service Model:-
+IaaS: 	: VMs		: Application/data/Runtime/OS
+PaaS: 	: DBs		: Application/data
+SaaS	: Emails	: Nothing
+****************************************************************************************************************************************************************************************
+Cloud Model types:
+Public:-Azure
+Private:- Company managed
+Hybrid:- Public + Private
+****************************************************************************************************************************************************************************************
+Economics of Scale:-
+Low-cost for operations
+discounted h/w based on high and consistent usage, same discount can be passed on to customers as well
+If the number of customers increase, the chance of services cost can go down.
+CapEx and OpEx (Human Resources, Maintenance, Software Support, Datacenter Costs - Cooling)
+****************************************************************************************************************************************************************************************
+Shared Responsibility Model:
+https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility
+****************************************************************************************************************************************************************************************
