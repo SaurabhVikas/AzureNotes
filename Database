@@ -1,0 +1,91 @@
+******************************************************************************************************************************************************************************************
+PaaS
+************************************
+Azure SQL DB Service:- for MS-SQL DB
+************************************
+SQL databases --> Create --> 
+Basics (DB name, server (name, authentication method) name, SQL elastic pool, env, configure database, redundancy)
+Networking (connectivity method = public endpoint, Allow Azure services and resources to access this server = yes, Add current client IP address = yes)
+
+This will create a db server with a db hosted on that.
+admin01
+password@1
+******************************************************************************************************************************************************************************************
+To connect to DB server, either use SSMS or go to DB in portal and try "Query Editor"
+CREATE TABLE Course
+(
+   CourseID int,
+   CourseName varchar(1000),
+   Rating numeric(2,1)
+)
+INSERT INTO Course(CourseID,CourseName,Rating) VALUES(1,'AZ-204 Developing Azure solutions',4.5)
+ 
+INSERT INTO Course(CourseID,CourseName,Rating) VALUES(2,'AZ-303 Architecting Azure solutions',4.6)
+ 
+INSERT INTO Course(CourseID,CourseName,Rating) VALUES(3,'DP-203 Azure Data Engineer',4.7)
+
+SELECT * FROM Course
+******************************************************************************************************************************************************************************************
+************************************
+Azure Database for MySQL servers:- Create
+************************************
+Type = Flexible, enter servername, region, version, workload type, configure server (compute tier:- Burstable, GP, business critical   compute size, storage auto-growth, HA, backup, 
+redundancy), 
+**Note that storage cannot be scaled down once the server is created.
+******************************************************************************************************************************************************************************************
+Either use MySQL workbench 8.0.31 OR connect option from portal to connect via Bash/Powershell
+******************************************************************************************************************************************************************************************
+************************************
+Azure Database for PostgreSQL servers:-
+************************************
+Open Source RDBMS:
+To connect either use Azure Data Studio or Connect option from portal itself.
+******************************************************************************************************************************************************************************************
+Enterprise Datawarehouses:-
+Unstructured data --> Ingest data using pipelines through Azure Synapse or Data Factory --> Store data into Azure Data Lake --> Prepare and train your data using Azure Synapse or Databricks
+Finally add these data in DBW using Azure Synapse dedicated SQL pool
+******************************************************************************************************************************************************************************************
+Data Lake:-
+Create a normal storage account --> Advanced :- Data Lake Storage Gen2 :- Enable hierarchical namespace --> Default --> Create
+Create container --> upload one activity log
+******************************************************************************************************************************************************************************************
+Creating an Azure Synapse workspace:-
+Home --> Azure Synapse Analytics --> Create (use above datalake)
+******************************************************************************************************************************************************************************************
+Go to this synapse workspace --> Activity Pools (SQL pools) --> New --> Create
+******************************************************************************************************************************************************************************************
+Using pipeline to transfer data:-
+Go to Synapse workspace --> Getting started (Open Synapse studio) --> Integrate --> Copy Data tool -->  source = datalake , destination = Azure synapse analytics --> bulk insert
+******************************************************************************************************************************************************************************************
+Azure Cosmos DB:-
+Fully managed noSQL DB:
+Auto scaling
+milli-second response time
+Uses multiple APIs like SQL, MongoDB, Gremlin (graph based), Cassandra, Table
+
+Home --> Azure Cosmos DB --> Create --> Account --> Data Explorer --> Database + Container --> Uplaod data in JSON format
+******************************************************************************************************************************************************************************************
+Azure Databricks:-
+Platform for developing and maintaining enterprise-grade data solutions.
+The creators of spark went ahead and created the Databricks platform.
+Ingest data / Process data / Work with SQL / Data Exploration / ML / Security and Governance / Visualizations
+
+******************************************************************************************************************************************************************************************
+Case:
+Have one Azure datalake --> Container --> Upload activity log
+Home --> Azure Databricks --> Create an Azure Databricks workspace --> Launch Workspace --> Create a compute cluster --> Create a notebook --> have codein cell and run
+
+spark.conf.set(
+    "fs.azure.account.key.datalake244434.dfs.core.windows.net",
+    "dilbGv2rof6G4emB0qWgVwAOOexu/bIpvJiUnfal7+klHqCsKLB+JkQzMfRlgu0fm14iUFNHXPeU+AStZZXK2w==")
+ 
+val file_location = "abfss://csv@datalake244434.dfs.core.windows.net/Log.csv"
+val file_type = "csv"
+ 
+val df = spark.read.format(file_type).
+options(Map("header"->"true")).
+schema(dataSchema).
+load(file_location)
+ 
+display(df)
+******************************************************************************************************************************************************************************************
