@@ -1,0 +1,88 @@
+AAD:-
+Authentication and Authorization
+********************************************************************************************************************************************************************************************
+New User: User principal name, display name, password, Assignment (role, group) --> Create
+********************************************************************************************************************************************************************************************
+RBAC:-
+Based on different heirarchy like Subscription(RG(Resources)) --> Access Control (IAM) --> Add --> Add role assignment --> Select role --> Select Member(s) --> Review and Assign
+********************************************************************************************************************************************************************************************
+Groups:-
+Groups -> New group --> Type = Security --> Name --> Description --> Membership type = Assigned --> Add Members --> Create
+Nesting of groups is not possible. We can add only users in group.
+********************************************************************************************************************************************************************************************
+MFA:-
+Goto All users --> click on 3 dots from right side beside Manage view --> Select "Per user MFA" --> Users --> Enable MFA --> Sign-out and Sign-in with that user and follow the instructions for Microsoft Authenticator setup or Phone
+Per user MFA --> service settings --> Enable ways for authentication available for users
+
+MFA Status: Disabled(Enable)/Enforced(disable)
+********************************************************************************************************************************************************************************************
+Conditional Access Policies:-
+It needs you to have "Azure AD Premium P2" license
+AAD --> Licenses --> Try/Buy --> Select "Azure AD Premium P2"
+It has free (only once) and later $9/user/month cost
+
+Default Directory --> Security --> Conditional Access --> Policies --> New --> (Name, Assignment (user), Cloud Apps and actions (Microsoft Azure Management), conditions (device/locations),
+Grant (Grant access / Block access + MFA), Enable Policy (on/off) --> Create  
+********************************************************************************************************************************************************************************************
+Passwordless Authentication:-
+Biometric or PIN
+https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless
+********************************************************************************************************************************************************************************************
+External identities:-
+Users --> New user --> Invite external user. User gets a mail and accepts the invitation. User then lands on https://myapplications.microsoft.com page. User can access your resource on
+his portal also.
+ This user will get created as a Guest user (others are Member users)
+********************************************************************************************************************************************************************************************
+Hybrid environments - Identities:-
+
+Onprem --> Azure AD Connect --> AAD
++
+Azure AD Domain Services:- Gives ability to host the full version on MsAD as a managed service on Azure.
+You get the options of domain join, group policy, LDAP and kerberos/NTLM authentication.
+********************************************************************************************************************************************************************************************
+Microsoft Defender for cloud:-
+Continually assesses resources w.r.to. security
+Gives recommendations on security suggestions and security score
+Home --> Microsoft Defender for cloud --> Free and Paid version with respective faeatures
+Home --> Microsoft Defender for cloud --> Environment Settings --> Your Subscription --> Defender Plans --> CSPM (Cloud Security Posture Management) / CWP (Cloud Workload Protection)
+
+Your company is planning on using the Microsoft Defender for Cloud service. Can you view the regulatory compliance of your Azure resources in Azure Security Center?
+Yes
+********************************************************************************************************************************************************************************************
+Microsoft Sentinel:-
+Used for Security Information and Event Management
+Used for Security orchestration, automation, and response
+
+Azure Activity logs --> route to --> Log analytics workspace   / Then enable use of MS Sentinel on it
+Sentinel will.....Collect data (MS Sentinel --> Data connectors), detect threats (Analytics based rules), respond and investigate threats
+
+Home --> Log Analytics Workspace --> Create
+
+Home --> Microsoft Sentinel --> Create
+				Data connectors/detect threats
+********************************************************************************************************************************************************************************************
+Microsoft Azure DDoS Attack:- Use Azure DDoS Protection
+fixes Performance issue
+********************************************************************************************************************************************************************************************
+Azure Firewall:-
+Has built-in high availability
+FQDN based traffic movement
+Managed high built-in availability. stateful in nature.
+Built-in "Threat Intelligence"
+
+Azure Firewall service can be used to protect your entire Azure virtual network. Here you can define Application and Network Rules.
+Network Security Groups can only be used to define network-based rules. And it can only be applied at the Network Interface layer or the Subnet layer.
+
+Lab:-
+Create one VM --> During networking section, create new VNet and add one subnet called "AzureFirewallSubnet" in that --> Create
+Home --> Azure Firewall --> Create --> Goto resource --> Firewall manager
+********************************************************************************************************************************************************************************************
+Zero trust policy:-
+There are 3 ways:
+Ensure to authenticate and authorize users (Verify explicitly a guiding principle when it comes to Zero Trust)
+Least access
+Assume a breach
+********************************************************************************************************************************************************************************************
+Defence on Depth :-
+data, application, compute, network, perimeter, IAM, physical security
+********************************************************************************************************************************************************************************************
