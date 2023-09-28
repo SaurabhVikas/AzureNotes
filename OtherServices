@@ -1,0 +1,91 @@
+**********************************************************************************
+Azure Traffic Manager:-
+This is a DNS based traffic load balancer.
+You can distribute traffic to public facing applications across different AZs, based on some routing algorithm.
+Create a TM Profile (Priority Routing Methods, Weighted Routing Methods) in front of your WebApps.
+Works on Global level.
+**********************************************************************************
+Deploy 2 webapps --> App Service editor --> Add one Default.html
+**********************************************************************************
+Home --> Traffic Manager Profile--> Create --> Choose routing methdod (Performance, Weighted, Priority, Geographcic, Multivalue and Subnet) 
+Go to TM profile --> Endpoints --> Target source type = App Service. Add 2 endpoints to both webapps with respective priority (1 and 2).
+Go to TM profile --> Configurations --> Change protocol to https from http with port#443
+Go to TM profile --> Configurations --> Overview --> DNS name --> Browse
+Stop webapps 1 and try.
+**********************************************************************************
+Azure CDN:-
+Helps to deliver content to users across the globe by placing content on physical nodes placed across the world.
+Fast delivery.
+Home --> CDN Profile --> Endpoints to WebApps --> Hits the nearest "Point of Presence Location" (like edge locations)
+Cache mechanism
+**********************************************************************************
+Deploy 1 webapp --> App Service editor --> Add one Default.html
+Home --> Front Door and CDN profiles --> Create --> Azure CDN Standard from Microsoft (classic) --> CDN endpoints with Azure WebApps --> origin type = webapp --> Select your webapp
+Wait for 5-10 minutes
+go to CDN profile overview --> You will have Endpoint hostname and Origin hostname
+Go to browser, settings --> dev tools, networking and compare time for both URLs.
+**********************************************************************************
+Azure Devops Services:-
+Plan --> code --> build --> test --> release --> deploy --> operate --> monitor
+https://azure.microsoft.com/en-us/products/devops/
+
+Azure Boards	:- New Work Item (Epic, Issue, Task, User Stories) : New/Active/Resolved/Closed
+Azure Repos	:- Integrated with GIT for SCM
+Azure Pipelines	:- Create Pipeline --> Where is your code --> Select --> Configure --> Review. It generates a YAML file for Build --> Deploy
+		:- Releases --> New pipeline -->
+Test plans	:- Here you can carry out manual testing via the use of testing tools.
+Azure Artifacts	:- Here you can share packages in terms of Maven based packages, NPM packages, or NuGet packages.
+DevTest lab	:- With the help of the service of the Azure DevTest Labs you can actually build a virtual lab.
+	           Home --> DevTest Labs --> Create --> Now here you can add "My virtual machines" 
+**********************************************************************************
+Azure Machine Learning:- Create
+workspace needs a number of other resources as well such as a storage account, a keyword, application, insights, and something known as a container registr (create new).
+So by default it is creating the other artifacts
+Go to ML studio --> Designer --> Create a ML model based on datasets --> Split your datasets / Algorithm like linear Regression --> Train Model --> Score your model --> 
+Create a compute cluster --> Submit your pipeline
+**********************************************************************************
+Cognitive Service:-
+With the help of these services you can actually add artificial intelligence the capabilities onto your applications.
+Speech:- Speech to text, text to speech, speechtranslation, Speaker recognition
+Language:- Entity recognition, sentiment analysis, question-answering, conversational language understanding
+Vision:- Computer vision, custom vision, Face API
+Decision:- 
+OpenAI Service:-
+**********************************************************************************
+Azure Bot Service:-
+Design and build enterprise grade conversational AI bots.
+Create a new bot using Bot Framework SDK	
+Build a new bot using Power Virtual Agents
+Test it using Bot Framework Emulator
+**********************************************************************************
+Azure Key Vault:-
+Save secrets like Encryption keys, certificates, DB password/secrets
+Home --> Key Vault --> Create
+Soft delete enabled
+Now define (keys, secrets, certificates) objects here --> Generate/Import
+**********************************************************************************
+Azure Logic Apps:-
+This provides a cloud platform wherein you can actually create and run automated workflows.
+Here you don't need to be well-versed in the coding aspect because you can actually have a designer that you can use to design your workflow.
+You can set various triggers for a workflow.
+You can also set various actions for a workflow.
+Example:- Azure Logic Apps --> RG --> Azure Blob
+	  When a particular event occurs, add a blob to Azure blob storage.
+Home --> Create Logic App --> Publish (Workflow, Container image) --> Once done, you will land on "Logic App Designer" --> Go to Blank Logic App --> Add a trigger and action using available
+templates
+**********************************************************************************
+IoT Hub:-
+This is a managed service that can be used as a central message hub for bidirectional communication between managed devices and an IoT application.
+As a use case scenario, what you can do is that, first of all, you can create a resource based on the "Azure IoT Hub service".
+You can then, stream your data from your various IoT based devices onto the Azure IoT Hub. 
+And then with the help of another service that is known as "Azure Stream Analytics". You can take the data from the Azure IoT Hub and then probably stream it onto an a Azure SQL Database
+for persistence of the telemetry data.
+**********************************************************************************
+Azure Batch Service:-
+This service can be used to run large-scale parallel and high-performance computing batch jobs.
+If you have this requirement of processing data in terms of batch jobs, you can consider the Azure Batch service.
+This service can actually manage a pool of virtual machines that is actually used for processing your data or your videos.
+It can also ensure that the application that is used for processing is automatically installed on the virtual machines that are spun up as part of the pool.
+At the same time, you can also make use of Azure storage accounts when it comes onto the storage of input files, the storage of the application itself that gets installed on the pool of virtual machines, and the output files.
+The Azure Batch service manages the tasks and the jobs that need to run on the virtual machines.
+**********************************************************************************
