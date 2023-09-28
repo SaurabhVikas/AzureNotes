@@ -1,0 +1,154 @@
+Pricing Calculator:-
+For organizations, before they start adopting a cloud platform, they would definitely want to know, from a pricing perspective, what will be the estimate cost for using services 
+on the cloud platform itself.
+Estimate of hourly or monthly cost.
+This works outside the Azure account.
+https://azure.microsoft.com/en-us/pricing/calculator/
+*********************************************************
+TCO: Total Cost of Ownership:-
+This is used to estimate the cost savings that can be realized by migrating workloads on to the Azure platform.
+This works outside the Azure account.
+https://azure.microsoft.com/en-us/pricing/tco/calculator/
+*********************************************************
+Azure Cost Management:-
+Once you start using an Azure account, and you start deploying resources, the next important step is to go ahead and ensure that you monitor cost as part of your account.
+*********************************************************
+An example invoice:-
+As part of the invoice details, you can see the exact usage of each service.
+Home --> Cost Management --> Invoices
+Use "Prepare Azure usage file" --> download and open this csv --> Trace "meterCategory", "unitOfMeasure", etc.
+*********************************************************
+Budgets:- For cost alerts
+Home --> Cost Management --> Budgets --> Add --> Enter budget threshold, Alert conditions, Alert recipients --> Create
+*********************************************************
+Support options:- (BDSP)
+Basic			: For all, Help+Support --> Create a new support request
+Developer		: Trial and non-prod env
+Standard		: Prod
+Professional direct	: Business-Critical dependence
+
+24*7 support on email/Phone is only for D (during business hours by email only), S and PD
+https://azure.microsoft.com/en-us/support/plans
+
+With the Standard Support plan, you get 24/7 access to technical support by email and phone. This would also a more cost-effective plan when compares to the Professional Direct Plan.
+*********************************************************
+Azure SLA:-
+This is Microsoft commitments for the uptime and connectivity when it comes onto their services.
+Composite SLA
+Business Metrics:- W.r.to SLA and possible downtime
+
+SLAs are only provided for the Azure Active Directory Basic and Premium services.
+
+https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
+https://learn.microsoft.com/en-us/azure/well-architected/resiliency/business-metrics
+*********************************************************
+Services in Preview:-
+Status: Now Available, In Preview (Public/Private), In development
+
+https://azure.microsoft.com/en-us/updates/
+https://azure.microsoft.com/en-gb/support/legal/preview-supplemental-terms/
+*********************************************************
+Cloud Adoption Framework:-
+
+https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/
+https://learn.microsoft.com/en-us/assessments/
+
+Define Strategy --> Plan --> Ready --> Adopt --> Secure --> Manage --> Govern
+*********************************************************
+Service Trust Portal:-
+
+https://servicetrust.microsoft.com/
+
+You can look at the different certifications, the regulations and the standards that are adopted by Microsoft when it comes on to their various services.
+*********************************************************
+Resource Tags:-
+Resource tags can be used to add kind of metadata for your resources.
+The tags can be applied onto your resources onto your resource group, and onto your subscriptions.
+*********************************************************
+Management Groups:-
+Tenant Toot Group --> Management Groups --> Subscriptions --> Resource Groups --> Resources
+RBAC, Azure Policies
+*********************************************************
+Azure Blueprints:-
+Ochestrate the deployment of artifacts to Azure.
+You can make use of Azure blueprints to go ahead and accomplish below.
+You can create something known as a blueprint definition that can have ARM templates. ARM templates can be used to deploy resources.
+You can have policies that are assigned.
+You can create resource groups.
+And you can assign permissions via the use of role-based access control.
+
+You can define all of this as part of a blueprint definition and then you can assign the blueprint onto, let's say, a new subscription.
+Home --> Blueprints --> Blueprint Definitions --> Create blueprint --> Publish -->  Assign blueprint
+*********************************************************
+Azure Policy:-
+This is kind of an overall compliance dashboard wherein you can see whether the resources that you have deployed as part of your account actually complies with the policies
+that have been assigned on to let's say a subscription or onto your account.
+Like:- AllowedLocation
+
+Go to policy --> context menu --> delete assignment
+*********************************************************
+Azure resource locks:-
+Resource locks can be used to prevent the accidental modification or deletion of a resource.
+Resource --> Lock --> Add --> Lock type (read-only(protection from modification), delete (protection from deletion))
+*********************************************************
+Azure CLI:-
+This is a command line interface that you can install and run on your Windows machine, on your Linux machine or even MacOS.
+In order to use the CLI the first step is to go ahead and install it.
+cmd --> az login --> az group list --> will get json output
+
+https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+*********************************************************
+Azure PowerShell and Cloud Shell:-
+PowerShell can work with not only Azure but with Microsoft 365.
+If you wanna use PowerShell with Azure, then you install the PowerShell module.
+Within Cloud Shell, which is kind of a browser-based session, you can run both your Azure CLI commands and your PowerShell commands as well.
+In order for Cloud Shell to work, all it needs is a storage account.
+*********************************************************
+ARM Templates:-
+A JSON file
+Microsoft has a newer language when it comes on to deployment of resources, when it comes on to infrastructure as code and that's known as Bicep.
+Home --> Deploy a custom template --> Custom deployment --> Build your own template in the editor --> Edit template
+*********************************************************
+Azure Arc Service:-
+With the use of Azure arc, you have a centralized and a unified way that allows you to manage your resources, not only on the Azure platform, but in your on-premises environment, as well.
+https://learn.microsoft.com/en-us/azure/azure-arc/overview
+*********************************************************
+Azure Advisor:-
+Gives recommendations.
+Cost, Security, Reliability, Operational Excellence and Performance.
+You will get a advisor score as well.
+*********************************************************
+Azure Service Health:-
+The service health gives you an overview when it comes onto any impact onto the underlying Azure services.
+Check "Planned Maintenance"
+*********************************************************
+Azure Monitor Service:-
+There are a lot of features available when it comes onto the Azure monitoring service. This also includes the ability to have alerts in place.
+Home --> Monitor
+*********************************************************
+Log Analytics:-
+You can actually create something known as a Log Analytics workspace and you can send your performance and other log data from your resources onto the log space itself,
+onto the Log Analytics workspace.
+And you can also write SQL-like queries here in the Log Analytics workspace to work with the underlying data.
+
+Home --> Log Analytics workspaces --> Create
+Now go to your workspace --> VMs --> Select a VM --> Connect
+Now go to your workspace --> VMs --> Agents management --> Data Collection Rules --> Create
+Home --> Log Analytics workspaces --> your workspace --> Logs --> Log Management --> Event/Heartbeat --> Type "Event" and run to see all pulled logs
+*********************************************************
+Application Insights:-
+It's basically an Application Performance Monitoring tool.
+This provides a feature when it comes onto application performance management and monitoring for live web applications.
+This works for applications hosted not only in Azure but also in your on-premises environment and other cloud platforms.
+
+*********************************************************
+Azure Government:-
+
+If US government agencies and their partners are interested in using cloud services that have extra government security and compliance, they can make use of the Azure Government instance itself.
+https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome
+https://learn.microsoft.com/en-us/azure/china/overview-operations
+
+*********************************************************
+Creating a new subscription:-
+Home --> Subscription --> Add
+*********************************************************
