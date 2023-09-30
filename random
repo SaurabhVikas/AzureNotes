@@ -1,0 +1,256 @@
+https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts
+
+Just-in-time access provides access to the virtual machine only for a specified amount of time. 
+This is one of the security methods you can use to protect your VMs in Azure.
+Use the Azure Security Center's Just-In-Time (JIT) Virtual Machine (VM) access feature to lock down inbound traffic to Azure Virtual Machines. 
+This makes it easier to connect to the VM when needed, while reducing the risk of exposure.
+
+
+Which file type should you use to copy files into your storage account using the Azure Import / Export service?
+CSV
+
+You can change which Azure AD tenant your Azure subscription is associated to.
+Yes
+
+If you try to start an existing virtual machine after your subscription has expired, you will see an error.
+
+Which billing accounts are supported by the Azure portal? Please select all applicable items.
+Microsoft Online Services Program
+Microsoft Customer Agreement
+Microsoft enterprise contracts
+Microsoft Partner Agreement
+
+When moving a virtual machine from Subscription A to Subscription B. No action should be taken on the virtual machine before migration.
+
+By possessing a great amount of servers, cloud vendors are able to provide cloud services at a lower price, known as "economies of scale".
+
+There is no support plan to needed when using the Azure forums on MSDN. The Azure forums on MSDN are available to anyone regardless of their support plan.
+
+When you implement efficient permission management by dividing users into groups and setting permissions, you should set groups using Azure management groups.
+
+A free Azure account grants access to all Azure services for the first 30 days, after which users will only have access to a subset of Azure services for free. 
+If users want to access all Azure services, they will need to upgrade to a "pay-as-you-go" account.
+
+Azure Service Health can view the status of Azure resources related to your subscription.
+
+The service level agreement is calculated using mean time to recovery (MTTR) and mean time between failures (MTBF) as metrics.
+
+The composite SLAs = SLA1 X SLA2
+
+The Azure CLI, Azure Powershell, and Azure Portal are all available as tools for virtual machines with MacOS, Linux, Ubuntu, and Windows 10 operating systems.
+
+Azure Event Grid makes it easy to create applications with an event-based architecture. 
+This allows your application to collect events from multiple sources and process them on your application.
+
+Advanced identity protection and Privileged Identity Management features are in Azure Active Directory Premium P21, but not in Premium P1.
+
+Azure Active Directory manages how cloud or on-premises devices access your company's data. Just register your device ID and manage it centrally.
+
+Azure Active Directory (Azure AD) enables identity management and security with single sign-on and multi-factor authentication. 
+However, it is not possible to divide users into groups and grant permissions.
+
+Certain Azure regions require customers to go through a request process in order to gain access. 
+To request access to these regions, you may open a support request and work with our Support team to discuss or enable access.
+
+Support requests can be created through the Azure Portal.
+You can also create and manage requests programmatically using the Azure Support Tickets REST API.
+
+Ability to quickly use and change cloud resources in response to changes in business requirements is called Agility.
+
+Ability to dynamically provision resources in response to changes in load is called elasticity.
+
+Azure DevOps Services allows you to host and operate web app applications.
+NO
+
+An Internet connection is always required to use cloud computing.
+NO
+
+Multiple locks can be set on a single resource.
+CanNotDelete
+ReadOnly
+
+More restrictive locks will take precedence when different types of locks are set on a single resource. 
+A delete lock allows modification of the resource, but a read-only lock does not allow modification of the resource. 
+Therefore, the read-only locks take precedence over resources that have both applied to it.
+
+Resource groups are used for resource access control.
+Yes
+
+You can create group policies using Azure Active Directory Domain Services (Azure AD DS).
+Yes
+
+
+You need to implement a simple application that uses Azure to automatically send email notifications.
+Choose the two best solutions for that.
+Functions and Logic Apps
+
+Flexibility in infrastructure management is one of the benefits of using IaaS on the Azure cloud.
+No
+
+Each region consists of geographically separated and independent data centers.
+Yes
+
+Regions are connected by broadband dedicated lines.
+No
+
+You can create budget alerts in Azure Cost Management and get notified when your costs exceed your budget.
+
+Data transfer between storage accounts in the same Azure region is free.
+
+Azure Monitor can send alerts for Azure Active Directory users, but not for Azure Active Directory Group IDs.
+
+Azure spending limits already set are fixed and cannot be changed.
+
+Your company is planning to migrate from an on-premises environment to Azure. It is necessary to proceed with application development using Docker as the development environment.
+Which is the best solution for that?
+Container and AppService
+
+Azure SQL Database is the easiest way to use SQL Server on Azure. However, in the scenario we have a requirement of a SQL Server database utilizing the Common Language Runtime (CLR). 
+Common Language Runtime (CLR) is not available in Azure SQL Database.
+
+Public cloud services like Azure offer the flexibility to align system costs with capital expenses (CapEx) to operational expenses (OpEx). 
+
+Password management for SaaS solutions must be managed by the user.
+
+Applications can obtain security tokens using Azure Active Directory. 
+
+Azure data centers undergo third-party security audits.
+
+Azure Stack allows users to deploy Azure services using their own data centers. 
+Azure Stack is an on-premise version of Azure service that allows you to build an environment based on common technology and management infrastructure with Microsoft Azure.
+
+Data can be asynchronously replicated to other regions for disaster recovery.
+
+A Microsoft Azure account with an active EA portal (https://ea.azure.com/) is required when associating an enterprise Azure subscription.
+
+Users can access MSDN Platforms by setting up a pay-as-you-go subscription in Azure.
+
+You can require Azure Multi-Factor Authentication (MFA) during authentication for all user accounts.
+
+Azure Multi-Factor Authentication (MFA) can be set up to grant access via both facial recognition and mobile phone passcodes, in combination.
+
+Azure Advisor is free and gives you access to recommendations at no additional charge.
+
+The service that allows you to view audit reports and compliance-related information for Azure services is Microsoft Service Trust Portal.
+
+Correct tool to use to run Azure CLI commands:-
+Windows PSH, Terminal, cmd prompt
+
+Automatically scale out and increase the number of servers during busy hours. The method of increasing the number of servers is called scale-out.
+
+You need to enforce filtering on the subnet of your Azure virtual network.:-
+Use Virtual Appliances,
+Create a User Defined Route (UDR)
+
+You are building an application using Azure virtual machines. As a security requirement at that time, it is necessary to monitor threats throughout the network.
+Microsoft Defender for Identity
+
+Using Azure virtual machines instead of traditional servers improves fault tolerance.
+
+Azure Information Protection can troubleshoot using scanner diagnostic tools.
+
+On-premises identities need NOT to be synced to the cloud when setting up MFA for identities.
+
+You have an Azure AD tenant associated with your Azure subscription. All admins are required to enter a verification code to access the Azure portal. 
+In doing so, administrators should only be able to access the Azure portal from the on-premises network.
+The 'Sign-in risk policy' allows you to set multi-factor authentication (MFA) and access locations
+
+You are preparing to run an Azure PowerShell script from your Linux computer. What kind of preparation do you need to do before this? 
+PSH core and Azure PSH Module
+
+Azure virtual machines are also charged per second based on usage time.
+
+You want to monitor activities conducted by users and take steps to store this data.
+Please select the three best services to help do this.
+Monitor, Event Hubs, Storage
+
+Availability Zones are deferent from Zones. Zones are geographical groupings of Azure regions for billing purposes.
+
+No additional cost is required when using Azure globally across multiple regions.
+
+The Standard, Professional Direct and Premier Support for Enterprise plans offer 24/7 access to technical support via email and phone.
+
+You would like to subscribe to an Azure support plan that will allow you to receive design reviews based on your company's requirements.
+Premier plan
+
+You need to create an Azure resource that defines a VPN appliance using a specific IP address within your company. 
+Which Azure resource should you create?
+A local network gateway
+
+Optimizing the user experience by deploying a globally available application in multiple regions close to the user is called Geo-replication.
+
+Which OS can be used on Azure Virtual Desktop (AVD)?
+・Windows desktop client
+・Web client
+・MacOS client
+・iOS client
+・Android client
+・Microsoft Store client
+
+What is the best way to migrate user account information from on-premises Active Directory to Azure?
+Azure AD Connect Password Hash Sync 
+
+You are building an IoT solution.
+Choose the best central management solution to connect, monitor and manage your IoT devices.
+IoT Central
+
+Which service can automatically adjust the protection of user-specific Azure resources within a virtual network to provide DDoS attack protection?
+DDoS Network Protection
+
+How many subscriptions can a user associate with one account?
+10
+
+What do you call an object that represents a user, group, service principal, or managed identity requesting access to an Azure resource?
+A security principal
+
+What is the maximum number of virtual machines that can be configured in one virtual machine scale set?
+1000
+
+Which Azure services can use Apache Hadoop big data analytics tools?
+Azure HD Insights
+
+Which tool can estimate the future cost of individual Azure services based on projected usage?
+Azure Pricing Calculator
+
+What is the maximum amount of storage a single storage account can take?
+5PiB (Petabytes)
+
+One Azure subscription can have up to 250 storage accounts per region
+
+How many subscriptions can a user associate with one account?
+Unlimited
+
+Which configuration is used on Azure for the "network" layer of network security?
+Subnets
+
+What happens if you exceed your free tier credits while using your Azure free account?
+Account and services will be disabled. Fee.
+
+All correct options that describe documents provided by the Microsoft Service Trust Portal.
+MS's commitment to compliance
+Penetration test result
+
+Roles are used to control access to resources.  
+
+Azure policies cannot grant usage restrictions to specific users.
+
+When creating Functions, you need to edit the code using the Azure Functions dedicated code editor.
+No
+
+Azure Logic Apps can build stateful serverless applications.
+Yes
+
+Azure Functions are a serverless solution for creating functions. These functions only work in the cloud.
+No
+
+Which solution would you utilize to connect to Azure Cosmos DB using the virtual network's private IP address?
+Pvt endpoints
+
+You can disable public access to Azure Cosmos DB by using a public endpoint.
+No
+
+The maximum number of entities and messages per storage account is unlimited.
+Yes
+
+Individual vendors determine the pricing of services sold on the Azure Marketplace.
+Yes.
